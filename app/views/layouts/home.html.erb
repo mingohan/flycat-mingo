@@ -18,7 +18,7 @@
         <%= link_to root_path do%>
             <div class="flex items-center justify-between logo" alt="FlyCat logo" title="FlyCat">
               <div>
-                <img class="w-16 h-16" alt="FlyCat logo" title="FlyCat" src="/assets/logo.png">
+                <%= image_tag "logo.png" ,class:"w-16 h-16",alt:"FlyCat logo",title:"FlyCat" %>
               </div>
               <div>
                 <span class="mx-2 text-4xl font-semibold text-white">FlyCat</span>
@@ -53,7 +53,7 @@
           </div>
           <div class="w-full md:w-1/2 md:px-2">
             <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
-              <img class="w-full h-auto" alt="FlyCat" title="FlyCat" src="/assets/banner.png" />
+              <%= image_tag "banner.png" ,class:"w-full h-full",alt:"FlyCat",title:"FlyCat" %>
             </div>
           </div>
         </div>
