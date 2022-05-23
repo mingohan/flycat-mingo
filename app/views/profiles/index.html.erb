@@ -23,7 +23,7 @@
                 <td class="tp"><%= t('刪除員工資訊') %></td>
               <% end %>
           </tr>
-          <% @profiles.each do |profile|  %>
+          <% @profiles.order(staff_no: :asc).each do |profile|  %>
           <div class="h-full">
           <tr>
               <td class="tbody"><%= profile.staff_no %></td>

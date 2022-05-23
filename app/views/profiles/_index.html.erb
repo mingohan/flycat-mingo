@@ -9,7 +9,7 @@
             <td class="tp"><%= "電子信箱" %></td>
             <td class="tp"><%= "聯絡電話" %></td>
         </tr>
-        <% @profiles.each do |profile|  %>
+        <% @profiles.order(staff_no: :asc).each do |profile|  %>
         <div class="h-full bg-gray-200">
         <tr>
             <td class="tbody"><%= profile.staff_no %></td>
