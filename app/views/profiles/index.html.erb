@@ -11,7 +11,7 @@
           </div>
         </div>
       <% end %>
-      <table class="flex text-lg rounded-lg shadow-md">
+      <table class="w-full text-lg rounded-lg shadow-md">
           <tr class="thead">
               <td class="tp"><%= t('員工編號') %></td>
               <td class="tp"><%= t('姓名') %></td>
@@ -21,7 +21,6 @@
               <td class="tp"><%= "聯絡電話" %></td>
               <% if policy(:profile).create?  %>
                 <td class="tp"><%= t('報到日期') %></td>
-                <td class="tp">離職日期</td>
                 <td class="tp"><%= t('編輯員工資訊') %></td>
                 <td class="tp"><%= t('刪除員工資訊') %></td>
               <% end %>
@@ -37,7 +36,6 @@
               <td class="tbody"><%= profile.tel %></td>
               <% if policy(:profile).create?  %>
                 <td class="tbody"><%= profile.start_at %></td>
-                <td class="tbody"><%= profile.end_at %></td>
                 <td class="tbody"><%= link_to "編輯", edit_profile_path(profile),class: "edit-btn" %></td>
                 <td class="tbody"><%= link_to "刪除", profile_path(profile.id), class: "delete-btn",method: "delete", data: {confirm: '確定要刪除嗎？'} %></td> 
               <% end %>
