@@ -1,23 +1,25 @@
-<h1><%= t('部門管理') %></h1>
-<table>
-  <tr>
-      <td><%= t('部門名稱') %></td>
-      <td><%= t('編輯資訊') %></td>
-      <td><%= t('刪除部門') %></td>
-  </tr>
+<div class="h-full bg-gray-200">
+  <h1><%= t('部門管理') %></h1>
+  <div class="flex justify-end px-20">
+    <div class="add-btn">
+  <%= link_to t("新增部門"), new_department_path if policy(:department).index? %></div>
+  </div>
+  <table class="rounded-lg table-center">
+    <tr class="thead">
+        <td class="tp"><%= t('部門名稱') %></td>
+        <td class="tp"><%= t('編輯資訊') %></td>
+        <td class="tp"><%= t('刪除部門') %></td>
+    </tr>
 
-  <% @departments.order(id: :asc).each do |department|  %>
-  <tr>
-    <td><%= department.department_name %></td>
-    <% if policy(:department).index?  %>
-      <td><%= link_to "編輯", edit_department_path(department) %></td>
-      <td><%= link_to "刪除", department_path(department.id), method: 'delete', data: {confirm: '確定要刪除嗎？'} %></td>
+    <% @departments.order(id: :asc).each do |department|  %>
+    <tr>
+      <td class="tbody"><%= department.department_name %></td>
+      <% if policy(:department).index?  %>
+        <td class="tbody"><%= link_to "編輯", edit_department_path(department),class: "edit-btn" %></td>
+        <td class="tbody"><%= link_to "刪除", department_path(department.id), class: "delete-btn",method: 'delete', data: {confirm: '確定要刪除嗎？'} %></td>
+      <% end %>
+    </tr>
     <% end %>
-  </tr>
-  <% end %>
-    
-</table>
-</br>
-<div>
-<%= link_to t("新增部門"), new_department_path if policy(:department).index? %>
+      
+  </table>
 </div>

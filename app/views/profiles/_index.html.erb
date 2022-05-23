@@ -1,0 +1,37 @@
+  <h1 class="px-6 bg-gray-200"><%= t('員工資訊') %></h1>
+  <div class="px-6 py-5 bg-gray-200 table-left">
+    <table class="flex text-lg">
+        <tr class="thead">
+            <td class="tp"><%= t('員工編號') %></td>
+            <td class="tp"><%= t('姓名') %></td>
+            <td class="tp"><%= t('部門名稱') %></td>
+            <td class="tp"><%= t('性別') %></td>
+            <td class="tp"><%= "電子信箱" %></td>
+            <td class="tp"><%= "聯絡電話" %></td>
+            <% if policy(:profile).create?  %>
+              <td class="tp"><%= t('報到日期') %></td>
+              <td class="tp">離職日期</td>
+              <td class="tp"><%= t('編輯員工資訊') %></td>
+              <td class="tp"><%= t('刪除員工資訊') %></td>
+            <% end %>
+        </tr>
+        <% @profiles.each do |profile|  %>
+        <div class="h-full bg-gray-200">
+        <tr>
+            <td class="tbody"><%= profile.staff_no %></td>
+            <td class="tbody"><%= profile.name %></td>
+            <td class="tbody"><%= profile.department%></td>
+            <td class="tbody"><%= profile.gender %></td>
+            <td class="tbody"><%= profile.email %></td>
+            <td class="tbody"><%= profile.tel %></td>
+            <% if policy(:profile).create?  %>
+              <td class="tbody"><%= profile.start_at %></td>
+              <td class="tbody"><%= profile.end_at %></td>
+              <td class="tbody"><%= link_to "編輯", edit_profile_path(profile),class: "edit-btn" %></td>
+              <td class="tbody"><%= link_to "刪除", profile_path(profile.id), class: "delete-btn",method: "delete", data: {confirm: '確定要刪除嗎？'} %></td> 
+            <% end %>
+          <% end %>
+        </tr>
+    </table>
+  </div>
+</div>

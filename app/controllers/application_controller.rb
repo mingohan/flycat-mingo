@@ -33,4 +33,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
+  def after_sign_in_path_for(resource)
+    admin_index_path
+  end
+
 end
