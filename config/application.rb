@@ -5,7 +5,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-
+Time::DATE_FORMATS.merge!(:default => '%Y/%m/%d %H:%M:%S', :ymd => '%Y/%m/%d')
 module Flycat
   class Application < Rails::Application
     config.load_defaults 6.1
