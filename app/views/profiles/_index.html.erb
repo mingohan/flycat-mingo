@@ -8,10 +8,6 @@
             <td class="tp"><%= t('性別') %></td>
             <td class="tp"><%= "電子信箱" %></td>
             <td class="tp"><%= "聯絡電話" %></td>
-            <% if policy(:profile).create?  %>
-              <td class="tp"><%= t('編輯員工資訊') %></td>
-              <td class="tp"><%= t('刪除員工資訊') %></td>
-            <% end %>
         </tr>
         <% @profiles.each do |profile|  %>
         <div class="h-full bg-gray-200">
@@ -22,10 +18,6 @@
             <td class="tbody"><%= profile.gender %></td>
             <td class="tbody"><%= profile.email %></td>
             <td class="tbody"><%= profile.tel %></td>
-            <% if policy(:profile).create?  %>
-              <td class="tbody"><%= link_to "編輯", edit_profile_path(profile),class: "edit-btn" %></td>
-              <td class="tbody"><%= link_to "刪除", profile_path(profile.id), class: "delete-btn",method: "delete", data: {confirm: '確定要刪除嗎？'} %></td> 
-            <% end %>
           <% end %>
         </tr>
     </table>

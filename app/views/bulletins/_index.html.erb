@@ -2,24 +2,16 @@
   <div class="w-full mt-6 sm:w-1 md:w-1/2 sm:mt-0">
     <div class="bg-gray-200">
       <h1 class="px-6"><%= t('公告總覽') %></h1>
-      <div class="px-6 py-5 rounded-lg">
+      <div class="py-5 pl-6 rounded-lg">
         <table class="w-full text-lg rounded-lg shadow-md">
           <tr class="thead">
             <td class="tp"><%= t('發布日期') %></td>
             <td class="tp"><%= t('公告標題') %></td>
-            <% if policy(:bulletin).create?  %>
-              <td class="tp"><%= t('編輯資訊') %></td>
-              <td class="tp"><%= t('刪除公告') %></td>
-            <% end %>
           </tr>
           <% @bulletins.order(created_at: :desc).each do |bulletin|  %>
             <tr>
               <td class="tbody"><%= bulletin.created_at.to_date %></td>
               <td class="tbody"><%= link_to bulletin.title , bulletin_path(bulletin) %></td>
-                <% if policy(:bulletin).create?  %>
-                  <td class="tbody"><%= link_to "編輯", edit_bulletin_path(bulletin),class: "edit-btn" %></td>
-                  <td class="tbody"><%= link_to "刪除", bulletin_path(bulletin.id),class: "delete-btn", method: 'delete', data: {confirm: '確定要刪除嗎？'} if policy(:bulletin).destroy?%></td>
-                <% end %>
             </tr>
           <% end %>      
         </table>
@@ -29,27 +21,19 @@
   <%# <-------> %>
   <div class="w-full mt-6 sm:w-1 md:w-1/2 sm:mt-0">
     <div class="bg-gray-200">
-      <h1 class="px-6"><%= t('請假總覽') %></h1>
-      <div class="px-6 py-5 rounded-lg">
+      <h1 class="px-5"><%= t('請假總覽') %></h1>
+      <div class="px-4 py-5 rounded-lg">
         <table class="w-full text-lg rounded-lg shadow-md">
           <tr class="thead">
             <td class="tp"><%= '申請人'%></td>
             <td class="tp"><%= '假別' %></td>
             <td class="tp"><%= '請假事由' %></td>
-            <% if policy(:bulletin).create?  %>
-              <td class="tp"><%= '編輯資訊' %></td>
-              <td class="tp"><%= '刪除公告' %></td>
-            <% end %>
           </tr>
           <% @bulletins.order(created_at: :desc).each do |bulletin|  %>
             <tr>
               <td class="tbody">王小明</td>
               <td class="tbody">事假</td>
               <td class="tbody">家庭旅遊</td>
-                <% if policy(:bulletin).create?  %>
-                  <td class="tbody"><%= link_to "編輯", edit_bulletin_path(bulletin),class: "edit-btn" %></td>
-                  <td class="tbody"><%= link_to "刪除", bulletin_path(bulletin.id),class: "delete-btn", method: 'delete', data: {confirm: '確定要刪除嗎？'} if policy(:bulletin).destroy?%></td>
-                <% end %>
             </tr>
           <% end %>      
         </table>
