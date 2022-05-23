@@ -12,8 +12,7 @@ module Flycat
     config.exceptions_app = routes
     config.i18n.available_locales = %i[en zh-TW]
     config.i18n.default_locale = :'zh-TW'
-    # config.hosts << "flycat.works"
-    config.hosts << "014e-2001-b400-e23c-6d34-1d88-b97-503f-dcba.jp.ngrok.io"
+    config.hosts << "flycat.works"
     config.action_controller.forgery_protection_origin_check = false
     config.time_zone = "Taipei"
     config.active_record.default_timezone = :local
