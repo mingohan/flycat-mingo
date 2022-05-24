@@ -18,5 +18,6 @@ module Flycat
     config.active_record.default_timezone = :local
     config.i18n.available_locales = [:en, :'zh-TW']
     config.i18n.default_locale = :'zh-TW'
+    config.assets.initialize_on_precompile = false
   end
 end
